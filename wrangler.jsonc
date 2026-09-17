@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sigsmaflare",
+  "compatibility_date": "2025-09-01",
+  "main": "./workers/index.ts",
+  "secrets": {
+    "required": ["CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"]
+  },
+  "observability": {
+    "traces": {
+      "enabled": true
+    },
+    "logs": {
+      "invocation_logs": true,
+      "enabled": true
+    }
+  },
+  "upload_source_maps": true,
+  "triggers": {
+    "crons": ["0 */12 * * *"],
+  },
+  "workers_dev": true,
+}
